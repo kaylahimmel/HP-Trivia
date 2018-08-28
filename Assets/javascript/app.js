@@ -7,7 +7,7 @@ var submitButton = document.getElementsByClassName("submit");
 
 
 // create container (or maybe a form?) with the trivia questions and multiple choice answers
-const questions = [
+var questions = [
     {q1: "What is the last name of the red-headed family who befriends Harry?",
         answers: {
             a: "Beasley",
@@ -32,15 +32,152 @@ const questions = [
         },
         correctAnswer: "c"
     }
+    {q4: "What spell do wizards cast to remove parts of someone's memory?",
+        answers: {
+            a: "Obliviate",
+            b: "Obliterate",
+            c: "Obsinerate",
+        },
+        correctAnswer: "a"
+    }
+    {q5: "What does Harry say to close the Marauder's Map and make it blank?",
+        answers: {
+            a: "Mapius Finito",
+            b: "Blankerous Onus",
+            c: "Mischief Managed",
+        },
+        correctAnswer: "c"
+    }
+    {q6: "What is the name of the Malfoy's house elf?",
+        answers: {
+            a: "Nobby",
+            b: "Robby",
+            c: "Dobby",
+        },
+        correctAnswer: "c"
+    }
+    {q7: "What spell would be used to summon a wizard's patronus?",
+        answers: {
+            a: "Expelliarmus Patronus!",
+            b: "Expecto Patronus!",
+            c: "Accio Patronus!",
+        },
+        correctAnswer: "a"
+    }
+    {q8: "Hermione's parents are both ________.",
+        answers: {
+            a: "professors",
+            b: "dentists",
+            c: "architects",
+        },
+        correctAnswer: "b"
+    }
+    {q9: "Crabbe and Goyle are the last names of _______'s best friends.",
+        answers: {
+            a: "Weasley",
+            b: "Tran",
+            c: "Malfoy",
+        },
+        correctAnswer: "c"
+    }
+    {q10: "What color is unicorn blood?",
+        answers: {
+            a: "gold",
+            b: "Silver",
+            c: "copper",
+        },
+        correctAnswer: "b"
+    }
+    {q11: "What is the name of Filch's cat?",
+        answers: {
+            a: "Mrs. Norris",
+            b: "Mrs. van Damme",
+            c: "Mrs. Li",
+        },
+        correctAnswer: "a"
+    }
+    {q12: "What spell would a wizard use to levitate an object?",
+        answers: {
+            a: "Liftiosa Hoveriosa",
+            b: "Leviosa Liftiosa",
+            c: "Wingardium Leviosa",
+        },
+        correctAnswer: "c"
+    }
+    {q13: "What are the magical creatures called who guard Azkaban prison?",
+        answers: {
+            a: "Defectors",
+            b: "Dementors",
+            c: "Demonists",
+        },
+        correctAnswer: "b"
+    }
+    {q14: "What is the name of Harry's owl?",
+        answers: {
+            a: "Crookshanks",
+            b: "Hedwig",
+            c: "Fawkes",
+        },
+        correctAnswer: "b"
+    }
+    {q15: "What Quidditch position does Harry play?",
+        answers: {
+            a: "Seeker",
+            b: "Fetcher",
+            c: "Catcher",
+        },
+        correctAnswer: "a"
+    }
   ];
 
 
+  function showQuiz(){}
+  // we'll need a place to store the HTML output
+    var quiz = [];
+  
+    // for each question...
+    myQuestions.forEach(
+      (questionCurrent, questionNum) => {
+  
+        // we'll want to store the list of answer choices
+        var answerChoices = [];
+  
+        // and for each available answer...
+        for(letter in questionCurrent.answerChoices){
+  
+          // ...add an HTML radio button
+          answerChoices.push(
+            `<label>
+              <input type="radio" name="question${questionNum}" value="${letter}">
+              ${letter} :
+              ${questionCurrent.answerChoices[letter]}
+            </label>`
+          );
+        }
+  
+        $(document).on("click", ".answer-radio", function(){
+            //your stuff in here
+            });
 
-// make list/array/object (not sure what's best) of questions and 3 possible answers for each
-    // figure out how to note which answer is the correct one
-    function showQuiz(){}
+
+        // add this question and its answers to the HTML, pushing to the "quiz" array
+        quiz.push(
+          `<div class="question"> ${questionCurrent.question} </div>
+          <div class="answers"> ${answerChoices.join('')} </div>`
+        );
+      }
+    );
+ 
+    
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = quiz.join("");
+  
+
+
+
 
     function showResults(){}
+    
     
     // create a start button that initializes the game so the time doesn't start immediately.    
     var startButton = document.getElementsByClassName("start");
