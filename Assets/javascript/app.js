@@ -1,18 +1,10 @@
-// GLOBAL ELEMENTS -----------------------------------------------------------------------------
-
-
-// latch onto HTML (move these to the appropriate areas of the code later)
-var quizContainer = document.getElementsByClassName("quiz");
-var submitButton = document.getElementsByClassName("submit");
-
-
 // create container (or maybe a form?) with the trivia questions and multiple choice answers
 var questions = [
     {q1: "What is the last name of the red-headed family who befriends Harry?",
         answers: {
             a: "Beasley",
             b: "Weasley",
-            c: "Schneasley"
+            c: "Measley"
         },
         correctAnswer: "b"
     },
@@ -128,56 +120,58 @@ var questions = [
         },
         correctAnswer: "a"
     }
-  ];
+];
 
 
-  function showQuiz(){}
-  // we'll need a place to store the HTML output
+// hide the questions until user clicks "Start Game" (maybe just show a Harry Potter image with the "Start Game" button?)
+document.ready(function() {
+    // show Harry Potter image and start button
+
+})
+
+function showQuiz() {
+    // create an array to store the actual quiz content
     var quiz = [];
   
-    // for each question...
-    myQuestions.forEach(
-      (questionCurrent, questionNum) => {
+    // use the "forEach" loop to go through each question in the "questions" array
+    questions.forEach(
+        questionText();
+        questionNum() {
   
-        // we'll want to store the list of answer choices
-        var answerChoices = [];
-  
-        // and for each available answer...
-        for(letter in questionCurrent.answerChoices){
-  
-          // ...add an HTML radio button
-          answerChoices.push(
-            `<label>
-              <input type="radio" name="question${questionNum}" value="${letter}">
-              ${letter} :
-              ${questionCurrent.answerChoices[letter]}
-            </label>`
-          );
-        }
-  
-        $(document).on("click", ".answer-radio", function(){
-            //your stuff in here
-            });
+            // create an "answers" array to store the list of answer choices
+            var answers = [];
+            // use a "for" loop
+            for(choice(questionText.answers)) {
+                // have JS create HTML radio buttons for each potential answer and push them to the "answers" array
+                answers.push(
+                    // create div in the HTML for the questions
+                    var radio-buttons = document.createElement("<input>");
+                    (radio-buttons).attr(type="radio", name="question.questionNum", value="choice");
+                    radio-buttons.appendChild(questionText.answers[choice]);
+                    document.label.appendChild(radio-buttons);
+                );
+            };
+        });
 
-
-        // add this question and its answers to the HTML, pushing to the "quiz" array
+        // add the question and its answers to the HTML, pushing them to the "quiz" array
         quiz.push(
-          `<div class="question"> ${questionCurrent.question} </div>
-          <div class="answers"> ${answerChoices.join('')} </div>`
+            // create div in the HTML for the questions
+            var Qdiv = document.createElement("<div>");
+            (Qdiv).attr(class="question");
+            Qdiv.appendChild(questionText.question);
+            document.section.appendChild(Qdiv);
+            // create div in the HTML for the answers
+            var Adiv = document.createElement("<div>");
+            (Adiv).attr(class="answers");
+            Adiv.appendChild(answers.join(""));
+            document.section.appendChild(Adiv);
         );
-      }
-    );
+    };
  
-    
+
     // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = quiz.join("");
-  
-
-
-
-
-    function showResults(){}
-    
+    quizContainer.innerHTML(quiz.join(""));
+      
     
     // create a start button that initializes the game so the time doesn't start immediately.    
     var startButton = document.getElementsByClassName("start");
@@ -186,8 +180,6 @@ var questions = [
         countdown();
     });
     
-    // hide the questions until user clicks "Start Game" (maybe just show a Harry Potter image with the "Start Game" button?)
-
 
     // create a submit button that for the user to push if they beat the countdown timer    
     var submitButton = document.getElementsByClassName("submit");
@@ -195,6 +187,8 @@ var questions = [
         showResults();
         document.text(".results")
     });
+
+    function showResults(){}
 
 
 // display a timer that counts down from 30 seconds
@@ -214,13 +208,22 @@ var countdown = setInterval(function() {
 
 
     // include # of correct, incorrect, and unanswered questions on this results page
-    var resultsContainer = document.getElementsByClassName("results");
-
+    var resultsContainer = function() {
+        document.getElementsByClassName("results");
+    }
 
     // add a "play again" button to the results page that loops back to the main question page
+    var againButton = document.getElementsByClassName("again");
+    againButton.on("click", function() {
+        showQuiz();
+        countdown();
+    });
 
-    // look into adding more than 10 questions but only randomly choosing whic 10 to show
 
-    // also maybe look into displaying the questions in a random order for each game
+
+// STILL NEED TO DO-------------------------------------------------------------------------
+// look into adding more than 10 questions but only randomly choosing which 10 to show
+
+// also maybe look into displaying the questions in a random order for each game
 
 // create themed look in CSS
