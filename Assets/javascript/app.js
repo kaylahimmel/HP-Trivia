@@ -125,6 +125,8 @@ var questions = [
 
 
 // User's answers will be sent to one of these arrays
+userAnswers = [];
+
 correct = [];
 
 incorrect = [];
@@ -146,8 +148,9 @@ console.log(startButton)
 
 
 // showQuiz function that generates the quiz questions and answers
-
-!!!START HERE!!!
+    // fill quizContainer with questions
+    // fill area beneath questions with radio buttons for the answers
+    // show submit button at the bottom of the quiz 
 
 
 
@@ -156,6 +159,7 @@ console.log(startButton)
 
 // function for Submit button that for the user to push if they beat the countdown timer    
 var submitButton = document.getElementsByClassName("submit");
+
 submitButton.on("click", function() {
     showResults();
     document.text(".results")
@@ -163,19 +167,35 @@ submitButton.on("click", function() {
 });
 
 
+
 // showResults function that shows the # of correct, incorrect, and unanswered questions
-// include # of correct, incorrect, and unanswered questions on this results page
+// then shows results on this results page
+
+
+
+var checkAnswers = function() {
+    for (var i = 0; i < questions.length; i++) {
+        if (userAnswers[i] == questions[i].correctAnswer) {
+            correct.push(userAnswers);
+        } else if (userAnswers[i] != questions[i].correctAnswer) {
+            incorrect.push(userAnswers);
+        } else {
+            unanswered.push(userAnswers);
+        };
+    };
+};
+
 var resultsContainer = function() {
     document.getElementsByClassName(".results");
-    (showResults).push(indexOf(correctAnswer));
-    (showResults).push(indexOf(incorrect));
-    (showResults).push(indexOf(unanswered));
+    (showResults).push(correct.length);
+    (showResults).push(incorrect.length);
+    (showResults).push(unanswered.length);
 };
 
 var showResults = function() {
     resultsContainer();
+    checkAnswers();
 };
-
 
 // play game again (restart function essentially but your shouldn't have to push the start button again)
 var againButton = function() {
@@ -183,7 +203,7 @@ var againButton = function() {
 };
 
 againButton.on("click", function() {
-    resultsContainer(empty);
+    resultsContainer(display = hide);
     showQuiz();
     countdown();
     timer();
