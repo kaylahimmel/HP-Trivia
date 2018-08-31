@@ -139,40 +139,32 @@ unaswered = [];
 // startButton function (set it to document.ready so nothing loads until the start button is clicked)
 var startButton = function() {
     document.getElementsByClassName(".start");
-}
-startButton.on("click", function() {
-    showQuiz();
-    timer();
-});
-console.log(startButton)
-
+    startButton.on("click", function() {
+        timer();
+    });
+};  
 
 // showQuiz function that generates the quiz questions and answers
     // fill HTML element with "container" class with questions
+
     // fill the HTML radio buttons with the answers from the array
+
     // show submit button at the bottom of the quiz 
 
 
 
-
-
-
 // function for Submit button that for the user to push if they beat the countdown timer    
-var submitButton = document.getElementsByClassName("submit");
-
-submitButton.on("click", function() {
-    showResults();
-    document.text(".results")
-    timer();
-});
-
+var submitButton = function() {
+    document.getElementsByClassName("submit");
+    submitButton.on("click", function() {
+        showResults();
+        timer.hide;
+    });
+};
 
 
 // showResults function that shows the # of correct, incorrect, and unanswered questions
 // then shows results on this results page
-
-
-
 var checkAnswers = function() {
     for (var i = 0; i < questions.length; i++) {
         if (userAnswers[i] == questions[i].correctAnswer) {
@@ -193,21 +185,20 @@ var resultsContainer = function() {
 };
 
 var showResults = function() {
-    resultsContainer();
     checkAnswers();
+    resultsContainer();
 };
 
 // play game again (restart function essentially but your shouldn't have to push the start button again)
 var againButton = function() {
     document.getElementsByClassName("again");
+    againButton.on("click", function() {
+        resultsContainer(display = hide);
+        showQuiz();
+        countdown();
+        timer();
+    });
 };
-
-againButton.on("click", function() {
-    resultsContainer(display = hide);
-    showQuiz();
-    countdown();
-    timer();
-});
 
 
 // COUNTDOWN TIMER------------------------------------------------------------------------------
@@ -215,16 +206,15 @@ againButton.on("click", function() {
 var timer = 60;
 
 // Set timer to 60 seconds and decrement by 1 second in real time
-var second = setInterval(function() {
-    timer--;
+var seconds = setInterval(function() {
     // Display the result in the HTML <div> with the class ".timer"
     document.getElementsByClassName(".timer").innerHTML = timer;
-
+    
+    timer--;
+    
     // If the countdown is finished, alert user 
     if (timer == 0) {
-        clearInterval(second);
+        clearInterval(seconds);
         alert("Time's up!");
     }
 }, 1000);
-
-console.log(timer)
