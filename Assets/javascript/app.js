@@ -148,8 +148,8 @@ console.log(startButton)
 
 
 // showQuiz function that generates the quiz questions and answers
-    // fill quizContainer with questions
-    // fill area beneath questions with radio buttons for the answers
+    // fill HTML element with "container" class with questions
+    // fill the HTML radio buttons with the answers from the array
     // show submit button at the bottom of the quiz 
 
 
