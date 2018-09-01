@@ -15,113 +15,28 @@
     <header>
         <h1>Test your Harry Potter knowledge...</h1>
     </header>
-    
-    <button class="start">Start the Quiz</button>
 
-    <div class="timer"></div>
+    <a href="#" id="start" class="btn btn-primary btn-lg">Start the Quiz</a>
     
     <div class="container">
-        <form class="quiz">
-            <div id="question1">
-                <p name="questions.q1"></p>
-                <input type="radio" name="questions.q1.answers.a" value=""><br>
-                <input type="radio" name="questions.q1.answers.b" value=""><br>
-                <input type="radio" name="questions.q1.answers.c" value=""><br>
-            </div>
-            <div id="question2">
-                <p value="q2"></p>
-                <input type="radio" name="questions.q2.answers.a" value=""><br>
-                <input type="radio" name="questions.q2.answers.b" value=""><br>
-                <input type="radio" name="questions.q2.answers.c" value=""><br>
-            </div>
-            <div id="question3">
-                <p value="q3"></p>
-                <input type="radio" name="questions.q3.answers.a" value=""><br>
-                <input type="radio" name="questions.q3.answers.b" value=""><br>
-                <input type="radio" name="questions.q3.answers.c" value=""><br>
-            </div>
-            <div id="question4">
-                <p value="q4"></p>
-                <input type="radio" name="questions.q4.answers.a" value=""><br>
-                <input type="radio" name="questions.q4.answers.b" value=""><br>
-                <input type="radio" name="questions.q4.answers.c" value=""><br>
-            </div>
-            <div id="question5">
-                <p value="q5"></p>
-                <input type="radio" name="questions.q5.answers.a" value=""><br>
-                <input type="radio" name="questions.q5.answers.b" value=""><br>
-                <input type="radio" name="questions.q5.answers.c" value=""><br>
-            </div>
-            <div id="question6">
-                <p value="q6"></p>
-                <input type="radio" name="questions.q6.answers.a" value=""><br>
-                <input type="radio" name="questions.q6.answers.b" value=""><br>
-                <input type="radio" name="questions.q6.answers.c" value=""><br>
-            </div>
-            <div id="question7">
-                <p value="q7"></p>
-                <input type="radio" name="questions.q7.answers.a" value=""><br>
-                <input type="radio" name="questions.q7.answers.b" value=""><br>
-                <input type="radio" name="questions.q7.answers.c" value=""><br>
-            </div>
-            <div id="question8">
-                <p value="q8"></p>
-                <input type="radio" name="questions.q8.answers.a" value=""><br>
-                <input type="radio" name="questions.q8.answers.b" value=""><br>
-                <input type="radio" name="questions.q8.answers.c" value=""><br>
-            </div>
-            <div id="question9">
-                <p value="q9"></p>
-                <input type="radio" name="questions.q9.answers.a" value=""><br>
-                <input type="radio" name="questions.q9.answers.b" value=""><br>
-                <input type="radio" name="questions.q9.answers.c" value=""><br>
-            </div>
-            <div id="question10">
-                <p value="q10"></p>
-                <input type="radio" name="questions.q10.answers.a" value=""><br>
-                <input type="radio" name="questions.q10.answers.b" value=""><br>
-                <input type="radio" name="questions.q10.answers.c" value=""><br>
-            </div>
-            <div id="question11">
-                <p value="q11"></p>
-                <input type="radio" name="questions.q11.answers.a" value=""><br>
-                <input type="radio" name="questions.q11.answers.b" value=""><br>
-                <input type="radio" name="questions.q11.answers.c" value=""><br>
-            </div>
-            <div id="question12">
-                <p value="q12"></p>
-                <input type="radio" name="questions.q12.answers.a" value=""><br>
-                <input type="radio" name="questions.q12.answers.b" value=""><br>
-                <input type="radio" name="questions.q12.answers.c" value=""><br>
-            </div>
-            <div id="question13">
-                <p value="q13"></p>
-                <input type="radio" name="questions.q13.answers.a" value=""><br>
-                <input type="radio" name="questions.q13.answers.b" value=""><br>
-                <input type="radio" name="questions.q13.answers.c" value=""><br>
-            </div>
-            <div id="question14">
-                <p value="14"></p>
-                <input type="radio" name="questions.q14.answers.a" value=""><br>
-                <input type="radio" name="questions.q14.answers.b" value=""><br>
-                <input type="radio" name="questions.q14.answers.c" value=""><br>
-            </div>
-            <div id="question15">
-                <p value="q15"></p>
-                <input type="radio" name="questions.q15.answers.a" value=""><br>
-                <input type="radio" name="questions.q15.answers.b" value=""><br>
-                <input type="radio" name="questions.q15.answers.c" value=""><br>
-            </div>
+        <form id="form">
+            <section id="timer"></section>
+            <br>
+            <section id="question"></section>
+            <input type="radio" id="choice1">
+            <br>
+            <input type="radio" id="choice2">
+            <br>
+            <input type="radio" id="choice3">
+            <br>
         </form>
-        
-        <button class="submit">Finished!</button>
-        
-        <div class="results">
-            <button class="again"></button>
-        </div>
     
+        <a href="#" id="submit" class="btn btn-primary btn-lg">Finished!</a>
+  
     </div>
 
+    <div id="result"></div>
+              
     <!-- jQuery MDN -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- My JavaScript -->

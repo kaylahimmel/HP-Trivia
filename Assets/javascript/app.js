@@ -1,175 +1,121 @@
 // create array called "questions" to hold our objects (questions and mutliple choice answers)
-var questions = [
-    {q1: "What is the last name of the red-headed family who befriends Harry?",
-        answers: {
-            a: "Beasley",
-            b: "Weasley",
-            c: "Measley"
-        },
-        correctAnswer: "b"
+var quiz = [
+    {question1: "What is the last name of the red-headed family who befriends Harry?",
+    choices1: ["Beasley", "Weasley", "Measley"],
+    correct: 1
     },
-    {q2: "What is the name of the dragon Hagrid raises?",
-        answers: {
-            a: "Norbert",
-            b: "Norman",
-            c: "Norsef"
-        },
-        correctAnswer: "a"
+    {question: "What is the name of the dragon Hagrid raises?",
+    choices: ["Norbert", "Norman", "Norsef"],
+    correct: 0
     },
-    {q3: "What is the train track location Hogwarts students caught the train from?",
-        answers: {
-            a: "Platform 10 1/2",
-            b: "Platform 8 1/4",
-            c: "Platform 9 3/4",
-        },
-        correctAnswer: "c"
+    {question: "What is the train track location Hogwarts students caught the train from?",
+    choices: ["Platform 10 1/2", "Platform 8 1/4", "Platform 9 3/4"],
+    correct: 2
     },
-    {q4: "What spell do wizards cast to remove parts of someone's memory?",
-        answers: {
-            a: "Obliviate",
-            b: "Obliterate",
-            c: "Obsinerate",
-        },
-        correctAnswer: "a"
+    {question: "What spell do wizards cast to remove parts of someone's memory?",
+    choices: ["Obliviate", "Obliterate", "Obsinerate"],
+    correct: 0
     },
-    {q5: "What does Harry say to close the Marauder's Map and make it blank?",
-        answers: {
-            a: "Mapius Finito",
-            b: "Blankerous Onus",
-            c: "Mischief Managed",
-        },
-        correctAnswer: "c"
+    {question: "What does Harry say to close the Marauder's Map and make it blank?",
+    choices: ["Mapius Finito", "Blankerous Onus", "Mischief Managed"],
+    correct: 2
     },
-    {q6: "What is the name of the Malfoy's house elf?",
-        answers: {
-            a: "Nobby",
-            b: "Robby",
-            c: "Dobby",
-        },
-        correctAnswer: "c"
+    {question: "What is the name of the Malfoy's house elf?",
+    choices: ["Nobby", "Robby", "Dobby"],
+    correct: 2
     },
-    {q7: "What spell would be used to summon a wizard's patronus?",
-        answers: {
-            a: "Expelliarmus Patronus!",
-            b: "Expecto Patronus!",
-            c: "Accio Patronus!",
-        },
-        correctAnswer: "a"
+    {question: "What spell would be used to summon a wizard's patronus?",
+    choices: ["Expelliarmus Patronus!", "Expecto Patronus!", "Accio Patronus!"],
+    correct: 0
     },
-    {q8: "Hermione's parents are both ________.",
-        answers: {
-            a: "professors",
-            b: "dentists",
-            c: "architects",
-        },
-        correctAnswer: "b"
+    {question: "Hermione's parents are both ________.",
+    choices: ["professors", "dentists", "architects"],
+    correct: 1
     },
-    {q9: "Crabbe and Goyle are the last names of _______'s best friends.",
-        answers: {
-            a: "Weasley",
-            b: "Tran",
-            c: "Malfoy",
-        },
-        correctAnswer: "c"
+    {question: "Crabbe and Goyle are the last names of _______'s best friends.",
+    choices: ["Weasley", "Tran", "Malfoy"],
+    correct: 2
     },
-    {q10: "What color is unicorn blood?",
-        answers: {
-            a: "gold",
-            b: "Silver",
-            c: "copper",
-        },
-        correctAnswer: "b"
+    {question: "What color is unicorn blood?",
+    choices: ["gold", "Silver", "copper"],
+    correct: 1
     },
-    {q11: "What is the name of Filch's cat?",
-        answers: {
-            a: "Mrs. Norris",
-            b: "Mrs. van Damme",
-            c: "Mrs. Li",
-        },
-        correctAnswer: "a"
+    {question: "What is the name of Filch's cat?",
+    choices: ["Mrs. Norris", "Mrs. van Damme", "Mrs. Li"],
+    correct: 0
     },
-    {q12: "What spell would a wizard use to levitate an object?",
-        answers: {
-            a: "Liftiosa Hoveriosa",
-            b: "Leviosa Liftiosa",
-            c: "Wingardium Leviosa",
-        },
-        correctAnswer: "c"
+    {question: "What spell would a wizard use to levitate an object?",
+    choices: ["Liftiosa Hoveriosa", "Leviosa Liftiosa", "Wingardium Leviosa"],
+    correct: 2
     },
-    {q13: "What are the magical creatures called who guard Azkaban prison?",
-        answers: {
-            a: "Defectors",
-            b: "Dementors",
-            c: "Demonists",
-        },
-        correctAnswer: "b"
+    {question: "What are the magical creatures called who guard Azkaban prison?",
+    choices: ["Defectors", "Dementors", "Demonists"],
+    correct: 1
     },
-    {q14: "What is the name of Harry's owl?",
-        answers: {
-            a: "Crookshanks",
-            b: "Hedwig",
-            c: "Fawkes",
-        },
-        correctAnswer: "b"
+    {question: "What is the name of Harry's owl?",
+    choices: ["Crookshanks", "Hedwig", "Fawkes"],
+    correct: 1
     },
-    {q15: "What Quidditch position does Harry play?",
-        answers: {
-            a: "Seeker",
-            b: "Fetcher",
-            c: "Catcher",
-        },
-        correctAnswer: "a"
+    {question: "What Quidditch position does Harry play?",
+    choices: ["Seeker", "Fetcher", "Catcher"],
+    correct: 0
     }
 ];
 
 
-
-// User's answers will be sent to one of these arrays
-userAnswers = [];
-
-correct = [];
-
-incorrect = [];
-
-unaswered = [];
-
-
-
 // FUNCTIONS & VARIABLES-----------------------------------------------------------------------------------
+var question = quiz[i].question[j];
+
+var choiceA = (quiz[i].question[j].choices[0]);
+
+var choiceB = (quiz[i].question[j].choices[1]);
+
+var choiceC = (quiz[i].question[j].choices[2]);
+
+
 // startButton function (set it to document.ready so nothing loads until the start button is clicked)
-var startButton = function() {
-    document.getElementsByClassName(".start");
+var startButton = function () {
+    document.getElementById("#start");
     startButton.on("click", function() {
-        timer();
+        startTimer();
     });
 };  
 
+
 // showQuiz function that generates the quiz questions and answers
-    // fill HTML element with "container" class with questions
-
-    // fill the HTML radio buttons with the answers from the array
-
-    // show submit button at the bottom of the quiz 
-
+var fillQuiz = function () {
+    for (var i = 0; i < quiz.length; i++) {
+        // fill HTML form element with "quiz" class with questions
+        document.getElementById("#question")
+        ("#question").text(question)
+        // fill the HTML radio buttons with the answers from the array
+        document.getElementById("#choice1");
+        ("#choice1").text(choiceA);
+        document.getElementById("#choice2");
+        ("#choice2").text(choiceB);
+        document.getElementById("#choice3");
+        ("#choice3").text(choiceC);
+    };
+};
 
 
 // function for Submit button that for the user to push if they beat the countdown timer    
-var submitButton = function() {
-    document.getElementsByClassName("submit");
+var submitButton  = function () {
+    document.getElementById("#submit");
     submitButton.on("click", function() {
         showResults();
-        timer.hide;
+        clearTimeout(startTimer);
     });
 };
 
 
 // showResults function that shows the # of correct, incorrect, and unanswered questions
 // then shows results on this results page
-var checkAnswers = function() {
+var checkAnswers  = function () {
     for (var i = 0; i < questions.length; i++) {
-        if (userAnswers[i] == questions[i].correctAnswer) {
+        if (userAnswers[i] == questions[i].correct) {
             correct.push(userAnswers);
-        } else if (userAnswers[i] != questions[i].correctAnswer) {
+        } else if (userAnswers[i] != questions[i].correct) {
             incorrect.push(userAnswers);
         } else {
             unanswered.push(userAnswers);
@@ -177,26 +123,27 @@ var checkAnswers = function() {
     };
 };
 
-var resultsContainer = function() {
+var resultsContainer  = function () {
     document.getElementsByClassName(".results");
     (showResults).push(correct.length);
     (showResults).push(incorrect.length);
     (showResults).push(unanswered.length);
 };
 
-var showResults = function() {
+var showResults  = function () {
     checkAnswers();
     resultsContainer();
 };
 
+
 // play game again (restart function essentially but your shouldn't have to push the start button again)
-var againButton = function() {
+var againButton  = function () {
     document.getElementsByClassName("again");
     againButton.on("click", function() {
         resultsContainer(display = hide);
         showQuiz();
         countdown();
-        timer();
+        startTimer();
     });
 };
 
@@ -206,9 +153,10 @@ var againButton = function() {
 var timer = 60;
 
 // Set timer to 60 seconds and decrement by 1 second in real time
-var seconds = setInterval(function() {
+var startTimer = setInterval(function() {
     // Display the result in the HTML <div> with the class ".timer"
-    document.getElementsByClassName(".timer").innerHTML = timer;
+    document.getElementById("#timer");
+    (timer).innerHTML(startTimer);
     
     timer--;
     
