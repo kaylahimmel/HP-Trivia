@@ -80,9 +80,9 @@ var choiceB = (quiz[i].question[j].choices[1]);
 
 var choiceC = (quiz[i].question[j].choices[2]);
 
-var correct = 0;
+var correctA = 0;
 
-var incorrect = 0;
+var incorrectA = 0;
 
 var unanswered = 0;
 
@@ -117,7 +117,8 @@ var fillQuiz = function () {
 function userAnswersEmpty() {
     //empty your array
     userAnswers = [];
-};
+}
+
 
 // function for Submit button that for the user to push if they beat the countdown timer    
 var submitButton  = function () {
@@ -134,10 +135,10 @@ var submitButton  = function () {
 var checkAnswers  = function () {
     for (var i = 0; i < quiz.length; i++) {
         if (userAnswers[n] == quiz[i].correct) {
-            correct++;
+            correctA++;
             userAnswersEmpty();
         } else if (userAnswers[n] != quiz[i].correct) {
-            incorrect++;
+            incorrectA++;
             userAnswersEmpty();
         } else {
             unanswered++;
@@ -148,8 +149,8 @@ var checkAnswers  = function () {
 
 var resultsContainer  = function () {
     document.getElementsByClassName(".results");
-    (".results").text("Correct: " + correct);
-    (".results").push("Incorrect: " + incorrect);
+    (".results").text("Correct: " + correctA);
+    (".results").push("Incorrect: " + incorrectA);
     (".results").push("Unanswered: " + unanswered);
 };
 
@@ -163,9 +164,7 @@ var showResults  = function () {
 var againButton  = function () {
     document.getElementsByClassName("again");
     againButton.on("click", function() {
-        resultsContainer(display = hide);
-        showQuiz();
-        countdown();
+        resultsContainer.hide;
         fillQuiz();
         startTimer();
     });
@@ -186,7 +185,7 @@ var startTimer = setInterval(function() {
     
     // If the countdown is finished, alert user 
     if (timer == 0) {
-        clearInterval(seconds);
+        clearInterval(startTimer);
         alert("Time's up!");
     }
 }, 1000);
