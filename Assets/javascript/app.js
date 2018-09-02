@@ -72,6 +72,12 @@ var choiceB = (quiz[i].question[j].choices[1]);
 
 var choiceC = (quiz[i].question[j].choices[2]);
 
+var correct = 0;
+
+var incorrect = 0;
+
+var unanswered = 0;
+
 
 // startButton function (set it to document.ready so nothing loads until the start button is clicked)
 var startButton = function () {
@@ -87,14 +93,14 @@ var fillQuiz = function () {
     for (var i = 0; i < quiz.length; i++) {
         // fill HTML form element with "quiz" class with questions
         document.getElementById("#question")
-        ("#question").text(question)
+        ("#question").innerHTML(question)
         // fill the HTML radio buttons with the answers from the array
         document.getElementById("#choice1");
-        ("#choice1").text(choiceA);
+        ("#choice1").innerHTML(choiceA);
         document.getElementById("#choice2");
-        ("#choice2").text(choiceB);
+        ("#choice2").innerHTML(choiceB);
         document.getElementById("#choice3");
-        ("#choice3").text(choiceC);
+        ("#choice3").innerHTML(choiceC);
     };
 };
 
@@ -125,9 +131,9 @@ var checkAnswers  = function () {
 
 var resultsContainer  = function () {
     document.getElementsByClassName(".results");
-    (showResults).push(correct.length);
-    (showResults).push(incorrect.length);
-    (showResults).push(unanswered.length);
+    (showResults).push(correct);
+    (showResults).push(incorrect);
+    (showResults).push(unanswered);
 };
 
 var showResults  = function () {
