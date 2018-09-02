@@ -64,6 +64,14 @@ var quiz = [
 
 
 // FUNCTIONS & VARIABLES-----------------------------------------------------------------------------------
+var i = quiz[i];
+
+var j = (quiz.question[i].choices[j]);
+
+var userAnswers = [];
+
+var n = userAnswers[n];
+
 var question = quiz[i].question[j];
 
 var choiceA = (quiz[i].question[j].choices[0]);
@@ -84,6 +92,7 @@ var startButton = function () {
     document.getElementById("#start");
     startButton.on("click", function() {
         startTimer();
+        fillQuiz();
     });
 };  
 
@@ -92,8 +101,8 @@ var startButton = function () {
 var fillQuiz = function () {
     for (var i = 0; i < quiz.length; i++) {
         // fill HTML form element with "quiz" class with questions
-        document.getElementById("#question")
-        ("#question").innerHTML(question)
+        document.getElementById("#question");
+        ("#question").innerHTML(question);
         // fill the HTML radio buttons with the answers from the array
         document.getElementById("#choice1");
         ("#choice1").innerHTML(choiceA);
@@ -101,9 +110,14 @@ var fillQuiz = function () {
         ("#choice2").innerHTML(choiceB);
         document.getElementById("#choice3");
         ("#choice3").innerHTML(choiceC);
-    };
+    }
 };
 
+// empty "userAnswers" array after each answer has been checked against the correct answer
+function userAnswersEmpty() {
+    //empty your array
+    userAnswers = [];
+};
 
 // function for Submit button that for the user to push if they beat the countdown timer    
 var submitButton  = function () {
@@ -118,22 +132,25 @@ var submitButton  = function () {
 // showResults function that shows the # of correct, incorrect, and unanswered questions
 // then shows results on this results page
 var checkAnswers  = function () {
-    for (var i = 0; i < questions.length; i++) {
-        if (userAnswers[i] == questions[i].correct) {
-            correct.push(userAnswers);
-        } else if (userAnswers[i] != questions[i].correct) {
-            incorrect.push(userAnswers);
+    for (var i = 0; i < quiz.length; i++) {
+        if (userAnswers[n] == quiz[i].correct) {
+            correct++;
+            userAnswersEmpty();
+        } else if (userAnswers[n] != quiz[i].correct) {
+            incorrect++;
+            userAnswersEmpty();
         } else {
-            unanswered.push(userAnswers);
-        };
-    };
+            unanswered++;
+            userAnswersEmpty();
+        }
+    }
 };
 
 var resultsContainer  = function () {
     document.getElementsByClassName(".results");
-    (showResults).push(correct);
-    (showResults).push(incorrect);
-    (showResults).push(unanswered);
+    (".results").text("Correct: " + correct);
+    (".results").push("Incorrect: " + incorrect);
+    (".results").push("Unanswered: " + unanswered);
 };
 
 var showResults  = function () {
@@ -149,6 +166,7 @@ var againButton  = function () {
         resultsContainer(display = hide);
         showQuiz();
         countdown();
+        fillQuiz();
         startTimer();
     });
 };
