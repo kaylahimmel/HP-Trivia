@@ -85,6 +85,7 @@ input[name="option"] {
 
 input, select {
     vertical-align:middle;
+    padding-top: 5px;
 }
 
 .button {
