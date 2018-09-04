@@ -16,10 +16,13 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    background-color: black;
+    color: beige;
 }
 
 body {
-    line-height:1;
+    line-height:1.2em;
+    
 }
 
 article,aside,details,figcaption,figure,

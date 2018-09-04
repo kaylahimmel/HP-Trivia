@@ -1,23 +1,60 @@
-.timer {
-
+body {
+    line-height:1.2em;
+    background-color: black;
+    color: beige;
 }
 
-.quiz {
-
+section { 
+    display:block;
 }
 
-.start {
-
+h1 {
+  font-size: 30px;
+  font-family: 'Chonburi', cursive;
 }
 
-.container {
+label {
+  display: inline;
+}  
 
+h3 {
+  text-align: center;
 }
 
-.submit {
-    
+#result {
+  font-family: 'Press Start 2P', cursive !important;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #036;
 }
 
-.results {
+input[name="option"] {
+  float:left;
+  
+}
 
+#form div{
+  margin:auto;
+  max-width: 205px;
+}
+
+#container {
+  text-align: center;
+}
+
+input, select {
+    vertical-align:middle;
+    padding-top: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none !important; 
+    color: white !important;
+} 
+
+body{
+  text-align: center;
 }
