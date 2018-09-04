@@ -1,3 +1,4 @@
+// FUNCTIONS & VARIABLES-----------------------------------------------------------------------------------
 // create array called "questions" to hold our objects (questions and mutliple choice answers)
 var quiz = [
     {question: "What is the last name of the red-headed family who befriends Harry?",
@@ -37,46 +38,24 @@ var quiz = [
     correct: 2
     },
     {question: "What color is unicorn blood?",
-    choices: ["gold", "Silver", "copper"],
+    choices: ["Gold", "Silver", "Bronze"],
     correct: 1
     },
     {question: "What is the name of Filch's cat?",
     choices: ["Mrs. Norris", "Mrs. van Damme", "Mrs. Li"],
     correct: 0
     },
-    {question: "What spell would a wizard use to levitate an object?",
-    choices: ["Liftiosa Hoveriosa", "Leviosa Liftiosa", "Wingardium Leviosa"],
-    correct: 2
-    },
-    {question: "What are the magical creatures called who guard Azkaban prison?",
-    choices: ["Defectors", "Dementors", "Demonists"],
-    correct: 1
-    },
-    {question: "What is the name of Harry's owl?",
-    choices: ["Crookshanks", "Hedwig", "Fawkes"],
-    correct: 1
-    },
-    {question: "What Quidditch position does Harry play?",
-    choices: ["Seeker", "Fetcher", "Catcher"],
-    correct: 0
-    }
 ];
-
-
-// FUNCTIONS & VARIABLES-----------------------------------------------------------------------------------
-
-// var userAnswers = [];
 
 var correctA = 0;
 
 var incorrectA = 0;
 
-var unanswered = 0;
 
 // wrap all the JS in document.ready function
 $(document).ready(function() {
 
-    // startButton function (set it to document.ready so nothing loads until the start button is clicked)
+    // startButton function (set it to document.ready so quiz doesn't load until the start button is clicked)
     var startButton = $("#start")
     
     startButton.on("click", function() {
@@ -97,9 +76,9 @@ $(document).ready(function() {
             var pTag = $("<p>").text(quiz[i].question);
             // fill the HTML radio buttons with the answers from the array
             var inputOne = $("<input>").attr("type", "radio").attr("name", questionNum).attr("value", 0).attr("id", "choiceOne");
-            var labelOne = $("<label>").text(quiz[i].choices[0]).attr("for", "choiceOne")
+            var labelOne = $("<label>").text(quiz[i].choices[0] + "  ").attr("for", "choiceOne")
             var inputTwo = $("<input>").attr("type", "radio").attr("name", questionNum).attr("value", 1).attr("id", "choiceTwo");
-            var labelTwo = $("<label>").text(quiz[i].choices[1]).attr("for", "choiceTwo")
+            var labelTwo = $("<label>").text(quiz[i].choices[1] + "  ").attr("for", "choiceTwo")
             var inputThree = $("<input>").attr("type", "radio").attr("name", questionNum).attr("value", 2).attr("id", "choiceThree");
             var labelThree = $("<label>").text(quiz[i].choices[2]).attr("for", "choiceThree")
 
@@ -112,71 +91,63 @@ $(document).ready(function() {
             questionDiv.append(labelThree);
             
             quizForm.append(questionDiv);
-            // 
-            // $("#question").text(quiz[i].question);
-            // 
-            // $("#choice1").text(quiz[i].choiceA);
-            // $("#choice2").text(quiz[i].choiceB);
-            // $("#choice3").text(quiz[i].choiceC);
+
+            checkAnswers();
         }
     };
-
-
-    // empty "userAnswers" array after each answer has been checked against the correct answer
-    function userAnswersEmpty() {
-        //empty your array
-        userAnswers = [];
-    }
 
 
     // function for Submit button that for the user to push if they beat the countdown timer    
     var submitButton = $("#submit")
     submitButton.on("click", function() {
-        showResults();
-        clearTimeout(startTimer);
-        console.log("submitButton works")
+        quizForm = 0;
+        timer.hide;
     });
 
-
-    // showResults function that shows the # of correct, incorrect, and unanswered questions
+    // define "unanswered" question amount
+    var unanswered = $(quiz.length - correctA - incorrectA)
+    
     // then shows results on this results page
     var checkAnswers  = function () {
         for (var i = 0; i < quiz.length; i++) {
-            if (userAnswers[n] == quiz[i].correct) {
+            if (userChoice == quiz[i].correct) {
                 correctA++;
-                userAnswersEmpty();
-            } else if (userAnswers[n] != quiz[i].correct) {
+            } else if (userChoice != quiz[i].correct) {
                 incorrectA++;
-                userAnswersEmpty();
             } else {
-                unanswered++;
-                userAnswersEmpty();
+                unanswered();
             }
         }
     };
 
-    var resultsContainer  = function () {
-        document.getElementsByClassName(".results");
-        (".results").text("Correct: " + correctA);
-        (".results").push("Incorrect: " + incorrectA);
-        (".results").push("Unanswered: " + unanswered);
-    };
+    // showResults function that shows the # of correct, incorrect, and unanswered questions
+    var showResults = $("#results")
 
-    var showResults  = function () {
-        // checkAnswers();
-        resultsContainer();
-    };
+    submitButton.on("click", function() {
+        var totalCorrect = $("<p>").text("Correct: " + correctA)
+        var totalIncorrect = $("<p>").text("Incorrect: " + incorrectA)
+        var totalUnanswered = $("<p>").text("Unanswered: " + unanswered)
+        
+        showResults.append(totalCorrect);
+        showResults.append(totalIncorrect);
+        showResults.append(totalUnanswered);
+
+        checkAnswers();
+    });
+
+
+    // check user's choices against correct answers in the array of objects
+    var userChoice = $('input[name=questionNum]:checked').val('id');
 
 
     // play game again (restart function essentially but your shouldn't have to push the start button again)
-    var againButton  = function () {
-        document.getElementsByClassName("again");
-        againButton.on("click", function() {
-            resultsContainer.hide;
+    var againButton  = $("again");
+
+    againButton.on("click", function() {
             fillQuiz();
             startTimer();
+            showResults.hide();
         });
-    };
 
 
     // COUNTDOWN TIMER------------------------------------------------------------------------------
@@ -187,7 +158,7 @@ $(document).ready(function() {
     var startTimer = function() {
         var countdown = setInterval(function() {
             // Display the result in the HTML <div> with the class ".timer"
-            HTMLtimer.text(timer)
+            HTMLtimer.text("Time Remaining: " + timer)
             timer--;
             
             // If the countdown is finished, alert user 

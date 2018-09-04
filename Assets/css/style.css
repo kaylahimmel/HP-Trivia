@@ -1,60 +1,58 @@
 body {
-    line-height:1.2em;
+    line-height: 1.1em;
+    width: 1100px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
     background-color: black;
     color: beige;
 }
 
-section { 
-    display:block;
+.button {
+    background-color: beige;
+    color: black;
+    padding: 15px 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+img {
+    position: absolute;
+    width: 1100px;
+    text-align: left;
+    top: 160px;
+    left: 10px;
+}
+
+#container, {
+    text-align: left;
+    display: block;
+    width: 750px;
+}
+
+#form, #results {
+    margin: auto;
+    position: relative;
+    margin: 0px 20px 40px;
+    text-align: left;
+    top: 20px;
 }
 
 h1 {
-  font-size: 30px;
-  font-family: 'Chonburi', cursive;
+    font-size: 65px;
+    font-family: 'Chonburi', cursive;
+    color: burlywood;
 }
 
-label {
-  display: inline;
-}  
-
-h3 {
-  text-align: center;
+p {
+    font-size: 16px;
+    padding-top: 10px;
+    color: burlywood;
 }
 
-#result {
-  font-family: 'Press Start 2P', cursive !important;
-  font-weight: bold;
-  font-size: 1.5em;
-  color: #036;
-}
-
-input[name="option"] {
-  float:left;
-  
-}
-
-#form div{
-  margin:auto;
-  max-width: 205px;
-}
-
-#container {
-  text-align: center;
-}
-
-input, select {
-    vertical-align:middle;
-    padding-top: 5px;
-}
-
-.button {
-    display: inline-block;
-    padding: 1em;
-    background-color: #79BD9A;
-    text-decoration: none !important; 
-    color: white !important;
-} 
-
-body{
-  text-align: center;
+section {
+    color: bisque;
+    font-size: 24px;
+    text-align: left;
+    top: 80px;
 }
