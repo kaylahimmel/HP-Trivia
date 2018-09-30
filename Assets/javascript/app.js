@@ -48,6 +48,12 @@ var quiz = [
 ];
 
 var newP = $("<p>")
+// results variables
+var correctA = 0;
+var incorrectA = 0;
+// define "unanswered" question amount
+var unanswered = $(Number(quiz.length) - correctA - incorrectA)
+
 
 // wrap all the JS in document.ready function
 $(document).ready(function() {
@@ -63,21 +69,21 @@ $(document).ready(function() {
 
     // TIME FUNCTION---------------------------------------------------------------------------------------------------------------
     // timer function that counts down from 60 seconds
-    var timer = 60;
+    var timer = 3;
     var HTMLtimer = $("#timer");
     // Decrement timer by 1 second in real time
     var startTimer = function() {
         var countdown = setInterval(function() {
             // Display the result in the HTML <div> with the class ".timer"
-            HTMLtimer.text("Time Remaining: " + timer)
+            HTMLtimer.text("You have " + timer + " seconds to complete the quiz.")
             timer--;
             
             // If the countdown is finished, alert user 
             if (timer < 0) {
                 clearInterval(countdown);
-                // alert("Time's up!");
-                $("#form").hide()
+                $("#form").hide();
                 checkAnswers();
+                $("#timer").hide();
             }
         }, 1000);
     }
@@ -116,27 +122,10 @@ $(document).ready(function() {
 
 
 // RESULTS CONTAINER & FUNCTIONS------------------------------------------------------------------------------------------------
-// results variables
-var correctA = 0;
-var incorrectA = 0;
-// define "unanswered" question amount
-var unanswered = $(Number(quiz.length) - correctA - incorrectA)
-
 // check user's choices against correct answers in the array of objects
 var userChoice = $("input[name=questionNum]:checked").val("id");
 
-// showResults function that shows the # of correct, incorrect, and unanswered questions
-var totalCorrect = $(newP).text("Correct: " + correctA)
-var totalIncorrect = $(newP).text("Incorrect: " + incorrectA)
-var totalUnanswered = $(newP).text("Unanswered: " + unanswered)
-
-var showResults = $("#results")
-
-showResults.append(totalCorrect);
-showResults.append(totalIncorrect);
-showResults.append(totalUnanswered);
-
-// then shows results on this results page
+// checkAnswers function (loops through all questions)
 var checkAnswers  = function () {
     for (var i = 0; i < quiz.length; i++) {
         if (userChoice == quiz[i].correct) {
@@ -150,11 +139,25 @@ var checkAnswers  = function () {
 };
 
 
+// showResults function that shows the # of correct, incorrect, and unanswered questions
+var totalCorrect = $(newP).text("Correct: " + correctA)
+var totalIncorrect = $(newP).text("Incorrect: " + incorrectA)
+var totalUnanswered = $(newP).text("Unanswered: " + unanswered)
+
+var showResults = $("#results")
+
+showResults.append(totalCorrect);
+showResults.append(totalIncorrect);
+showResults.append(totalUnanswered);
+
+
 // FINISHED BUTTON--------------------------------------------------------------------------------------------------------------
 var FinishedButton = $("#submit")
 FinishedButton.on("click", function() {
-    quizForm = 0;
-    timer.hide;
+    clearInterval(countdown);
+    $("#form").hide();
+    checkAnswers();
+    $("#timer").hide();
     showResults.show;
 });
 
@@ -176,4 +179,4 @@ restartButton.on("click", function() {
         fillQuiz();
         startTimer();
         showResults.hide();
-    }); 
+    });
