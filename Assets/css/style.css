@@ -8,15 +8,6 @@ body {
     font-weight: 600;
 }
 
-#container, {
-    width: 75%;
-    line-height: 1.1em;
-    text-align: left;
-    font-family: 'Muli', sans-serif;
-    color: beige;
-    display: block;
-}
-
 header {
     font-size: 40px;
     font-family: 'Playfair Display', serif;
@@ -37,10 +28,11 @@ label {
 
 .button {
     background-color: lightyellow;
-    color: black;
+    color: #28285A;
     padding: 10px 12px;
     font-family: 'Muli', sans-serif;
     font-size: 20px;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -51,6 +43,16 @@ label {
     font-size: 32px;
     text-align: left;
     top: 80px;
+}
+
+.quizContainer, {
+    width: 75%;
+    line-height: 1.1em;
+    text-align: left;
+    font-family: 'Muli', sans-serif;
+    background-color: #28285A;
+    color: white;
+    display: block;
 }
 
 #form, #results {
