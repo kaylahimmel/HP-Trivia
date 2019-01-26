@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Playfair Display', serif;
     color: lightyellow;
     text-align: center;
@@ -34,25 +34,38 @@ label {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
+    margin-left: 50px;
 }
 
 #timer {
     font-family: 'Muli', sans-serif;
     font-weight: 600;
+    margin-left: 50px;
     color: lightyellow;
     font-size: 32px;
     text-align: left;
     top: 80px;
 }
 
-.quizContainer, {
-    width: 75%;
+.quizContainer {
+    padding: 0px 10px;
     line-height: 1.1em;
+    margin: 25px 50px;
     text-align: left;
     font-family: 'Muli', sans-serif;
     background-color: #28285A;
+    opacity: 0.8;
     color: white;
     display: block;
+}
+
+.questionDiv {
+    padding-top: 15px;
+
+}
+
+#submit {
+    margin: 40px 0px;
 }
 
 #form, #results {

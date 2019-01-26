@@ -55,12 +55,13 @@ var quiz = [
 // results variables
 var correctA = 0;
 var incorrectA = 0;
+var unanswered = 0;
 // link buttons to IDs in the HTML
 var startBtn = $("#start")
 var finishedBtn = $("#submit")
 var restartBtn  = $("#restart");
 // link to container element IDs in the HTML
-var quizDiv = $("#quizContainer");
+var quizDiv = $(".quizContainer");
 var HTMLtimer = $("#timer");
 var quizForm = $("#quiz");
 var quizResults = $("#results")
@@ -149,7 +150,7 @@ var fillQuiz = function () {
         // convert the index number to a string instead of number so it can be used as the name attribute
         var questionNum = "question" + i.toString()
         // fill HTML form element with "quiz" class with questions
-        var questionDiv = $("<div>");
+        var questionDiv = $("<div class='questionDiv'>");
         var pTag = $("<p>").text(quiz[i].question);
         // fill the HTML radio buttons with the answers from the array
         var inputOne = $("<input>").attr("type", "radio").attr("name", questionNum).attr("value", 0).attr("id", "choiceOne");
@@ -186,11 +187,12 @@ var checkAnswers  = function () {
         if (userChoice == correctAnswer) {
             correctA++;
             console.log(correctA)
-        } else if (userChoice != correctAnswer) {
-            incorrectA++;
-            console.log(incorrectA)
-
-        } 
+        } else if (userChoice == undefined) {
+            unanswered++;
+            console.log(unanswered)
+        } else {
+            incorrectA++
+        }
     }
 };
 
@@ -199,12 +201,14 @@ var checkAnswers  = function () {
 // fillResults function that fills the "results" ID in the HTML
 var fillResults = function() {
     // var newP = $("<p>")
+    var unanswered = quiz.length - (correctA + incorrectA)
+    console.log(unanswered)
     // make variables for each result (correct, incorrect, and unanswered)
     var totalCorrect = $("<p>").text("Correct: " + correctA)
     console.log(totalCorrect);
     var totalIncorrect = $("<p>").text("Incorrect: " + incorrectA)
     console.log(totalIncorrect);
-    var totalUnanswered = $("<p>").text("Unanswered: " + (Number(quiz.length) - correctA - incorrectA))
+    var totalUnanswered = $("<p>").text("Unanswered: " + unanswered)
     // append results to "results" ID in HTML
     quizResults.append(totalCorrect);
     quizResults.append(totalIncorrect);
