@@ -1,0 +1,50 @@
+var quiz = [
+   {question: "What is the last name of the red-headed family who befriends Harry?",
+   choices: ["Beasley", "Weasley", "Measley"],
+   correct: 1
+   },
+   {question: "What is the name of the dragon Hagrid raises?",
+   choices: ["Norbert", "Norman", "Norsef"],
+   correct: 0
+   },
+   {question: "What is the train track location Hogwarts students caught the train from?",
+   choices: ["Platform 10 1/2", "Platform 8 1/4", "Platform 9 3/4"],
+   correct: 2
+   },
+   {question: "What spell do wizards cast to remove parts of someone's memory?",
+   choices: ["Obliviate", "Obliterate", "Obsinerate"],
+   correct: 0
+   },
+   {question: "What does Harry say to close the Marauder's Map and make it blank?",
+   choices: ["Mapius Finito", "Blankerous Onus", "Mischief Managed"],
+   correct: 2
+   },
+   {question: "What is the name of the Malfoy's house elf?",
+   choices: ["Nobby", "Robby", "Dobby"],
+   correct: 2
+   },
+   {question: "What spell is used to summon a wizard's patronus?",
+   choices: ["Expelliarmus Patronus!", "Expecto Patronus!", "Accio Patronus!"],
+   correct: 0
+   },
+   {question: "Hermione's parents are both ________.",
+   choices: ["professors", "dentists", "architects"],
+   correct: 1
+   },
+   {question: "Crabbe and Goyle are the last names of _______'s best friends.",
+   choices: ["Weasley", "Tran", "Malfoy"],
+   correct: 2
+   },
+   {question: "What color is unicorn blood?",
+   choices: ["Gold", "Silver", "Bronze"],
+   correct: 1
+   },
+   {question: "What is the name of Filch's cat?",
+   choices: ["Mrs. Norris", "Mrs. van Damme", "Mrs. Li"],
+   correct: 0
+   },
+   {question: "What animal is Harry's godfather able to transform into?",
+   choices: ["deer", "cat", "dog"],
+   correct: 2
+   }
+]
