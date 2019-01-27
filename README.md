@@ -13,6 +13,7 @@ Test your Harry Potter series knowledge by visiting https://kaylahimmel.github.i
 ### Future Updates
 Future updates include:
 - adding 1-2 difficulty levels of questions
+- implementing Bootstrap CSS instead of current custom styling
 
 ### License
 Harry Potter Trivia is licensed under the MIT License.
