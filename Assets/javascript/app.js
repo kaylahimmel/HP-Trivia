@@ -67,7 +67,7 @@ var quizForm = $("#quiz");
 var resultsDiv = $(".resultsContainer");
 var quizResults = $("#results")
 // time function that counts down from 60 seconds
-var time = 3;
+var time = 60;
 
 
 // LAUNCH THE APP ON DOCUMENT.READY--------------------------------------------------------------------------------------

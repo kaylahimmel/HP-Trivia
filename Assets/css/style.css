@@ -37,7 +37,7 @@ input[type=radio] {
 
 .quizContainer {
     padding: 0px 25px;
-    line-height: 1.1em;
+    line-height: 1.15em;
     text-align: left;
     background-color: #28285A;
     opacity: 0.8;
@@ -47,7 +47,7 @@ input[type=radio] {
 
 .questionDiv {
     padding-top: 15px;
-
+    line-height: 1.4em;
 }
 
 .button {
@@ -63,6 +63,17 @@ input[type=radio] {
     text-align: center;
 }
 
+.resultsContainer {
+    padding: 50px 50px;
+    line-height: 1.15em;
+    text-align: left;
+    font-weight: 600;
+    background-color: #28285A;
+    opacity: 0.8;
+    color: white;
+    margin: 100px 100px;
+}
+
 #timer {
     padding: 25px 0px 0px;
     font-weight: 600;
@@ -70,13 +81,7 @@ input[type=radio] {
     color: lightyellow;
     text-align: center;
 }
-
-.resultsContainer {
-    padding: 50px 50px;
-    line-height: 1.1em;
-    text-align: left;
-    font-weight: 600;
-    background-color: #28285A;
-    opacity: 0.8;
-    color: white;
-    margin: 100px 100px;
+    
+#finish {
+    margin-top: 50px;
+}
