@@ -1,5 +1,4 @@
-// FUNCTIONS & VARIABLES-------------------------------------------------------------------------------------------------
-// create array called "questions" to hold our objects (questions and mutliple choice answers)
+// create array called "quiz" to hold objects of questions and mutliple choice answers
 var quiz = [
     {question: "What is the last name of the red-headed family who befriends Harry?",
     choices: ["Beasley", "Weasley", "Measley"],
@@ -56,62 +55,67 @@ var quiz = [
 var correctA = 0;
 var incorrectA = 0;
 var unanswered = 0;
-// link buttons to IDs in the HTML
+// link to buttons IDs in the HTML
 var startBtn = $("#start")
-var finishedBtn = $("#submit")
-var restartBtn  = $("#restart");
+var finishedBtn = $("#finish")
+var playAgainBtn  = $("#restart");
 // link to container element IDs in the HTML
+var heading = $(".heading")
 var quizDiv = $(".quizContainer");
 var HTMLtimer = $("#timer");
 var quizForm = $("#quiz");
+var resultsDiv = $(".resultsContainer");
 var quizResults = $("#results")
 // time function that counts down from 60 seconds
-var time = 60;
+var time = 3;
+
+
+// LAUNCH THE APP ON DOCUMENT.READY--------------------------------------------------------------------------------------
+// wrap all the JS in document.ready function
+$(document).ready(function() {
+    // hide Finished and Play Again buttons at start
+    startBtn.show();
+    quizDiv.hide();
+    resultsDiv.hide();
+});
 
 
 // BUTTON FUNCTIONS------------------------------------------------------------------------------------------------------
 // Start Button (load quiz and start timer when the Start button is clicked)
 startBtn.on("click", function() {
     event.preventDefault();
+    heading.hide();
     startBtn.hide();
     startTimer();
+    quizDiv.show();
     fillQuiz();
-    finishedBtn.show();
-    quizResults.hide();
-    restartBtn.hide();
-
 });  
 
 // Finished Button (hides quiz and timer, checks the user's answers and fills in the results)
 finishedBtn.on("click", function() {
     event.preventDefault();
-    checkAnswers();
+    time = 0;
     HTMLtimer.empty();
-    HTMLtimer.hide();
     quizForm.empty();
-    quizForm.hide();
-    finishedBtn.hide();
-    quizResults.show();
+    quizDiv.hide();
+    checkAnswers();
+    resultsDiv.show();
     fillResults();
-    restartBtn.show();
 });
 
 // Restart Button (hides results, starts timer from 60 and fills in the quiz)
-restartBtn.on("click", function() {
-    // $(":reset");
-    // document.reset();
-    restartBtn.hide(); 
+playAgainBtn.on("click", function() {
+    event.preventDefault();
+    playAgainBtn.hide(); 
     quizResults.empty();
-    quizResults.hide();
-    time = 60;
+    resultsDiv.hide();
     corrrectA = 0;
     incorrectA = 0;
     unanswered = 0;
-    HTMLtimer.show();
+    time = 60;
     startTimer();
-    quizForm.show();
+    quizDiv.show();
     fillQuiz();
-    finishedBtn.show();
 });
 
 
@@ -123,21 +127,26 @@ var startTimer = function() {
         // hide the start button
         $("#start").hide();
         // Display the result in the HTML <div> with the ID "timer"
-        HTMLtimer.text("You have " + time + " seconds to complete the quiz.")
+        HTMLtimer.text(time + " seconds remaining")
         // Decrement time by 1 second in real time
         time--;
         // If the countdown is finished, alert user 
         if (time < 0) {
             clearInterval(countdown);
-            checkAnswers();
             HTMLtimer.empty();
-            HTMLtimer.hide();
             quizForm.empty();
-            quizForm.hide();
-            finishedBtn.hide();
-            quizResults.show();
+            quizDiv.hide();
+            checkAnswers();
+            resultsDiv.show();
             fillResults();
-            restartBtn.show();
+        // } if (finishedBtn.on("click", function()) {
+        //     clearInterval(countdown);
+        //     HTMLtimer.empty();
+        //     quizForm.empty();
+        //     quizDiv.hide();
+        //     checkAnswers();
+        //     resultsDiv.show();
+        //     fillResults();
         }
     }, 1000);
 }
@@ -200,14 +209,10 @@ var checkAnswers  = function () {
 // RESULTS function (shows the # of correct, incorrect, and unanswered questions)----------------------------------------
 // fillResults function that fills the "results" ID in the HTML
 var fillResults = function() {
-    // var newP = $("<p>")
     var unanswered = quiz.length - (correctA + incorrectA)
-    console.log(unanswered)
     // make variables for each result (correct, incorrect, and unanswered)
     var totalCorrect = $("<p>").text("Correct: " + correctA)
-    console.log(totalCorrect);
     var totalIncorrect = $("<p>").text("Incorrect: " + incorrectA)
-    console.log(totalIncorrect);
     var totalUnanswered = $("<p>").text("Unanswered: " + unanswered)
     // append results to "results" ID in HTML
     quizResults.append(totalCorrect);
@@ -215,13 +220,3 @@ var fillResults = function() {
     quizResults.append(totalUnanswered);
     console.log(fillResults)
 }
-
-
-// LAUNCH THE APP ON DOCUMENT.READY--------------------------------------------------------------------------------------
-// wrap all the JS in document.ready function
-$(document).ready(function() {
-    // hide Finished and Play Again buttons at start
-    startBtn.show();
-    finishedBtn.hide();
-    restartBtn.hide();
-});

@@ -15,8 +15,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <header>
-                    <h1>Test your Harry Potter knowledge...</h1>
+                <header class="heading">
+                    <h1>How well do you know the wizarding world of Harry Potter?</h1>
                 </header>
             </div>
         </div>
@@ -25,8 +25,9 @@
     <!-- <div class="container-fluid"> -->
         <div class="row">
             <div class="col-xs-12">
-                <div id="timer"></div>
-                <button id="start" type="submit" class="button">Start the Quiz</button>
+                <div class="button-div">
+                    <button id="start" type="submit" class="button">Take the Quiz</button>
+                </div>
             </div>
         </div>
     <!-- </div> -->
@@ -35,16 +36,23 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="quizContainer">
+                    <div id="timer"></div>
                     <form id="form">
                         <div id="quiz"></div>
-                        <button id="submit" type="submit" class="button">Finished!</button>
+                        <div class="button-div">
+                            <button id="finish" type="submit" class="button">Finished!</button>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div id="results">
-                        <button id="restart" type="reset" class="button">Play Again</button>
+                    <div class="resultsContainer">
+                        <div id="results">
+                            <div class="button-div">
+                                <button id="restart" type="reset" class="button">Play Again</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

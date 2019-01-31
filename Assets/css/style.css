@@ -1,18 +1,20 @@
-body {
+html {
     width: 100%;
+    top: 0;
+    left: 0;
     background: url("../images/hogwarts-3476786_1920x2100.svg");
     background-color: #28285A;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Muli', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 header {
-    font-size: 30px;
     font-family: 'Playfair Display', serif;
     color: lightyellow;
     text-align: center;
+    padding: 20px 0px;
 }
 
 p {
@@ -23,7 +25,29 @@ p {
 
 label {
     color: white;
-    padding: 0px 0px 50px;
+    font-weight: 600;
+    padding: 0px 10px 50px 0px;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.quizContainer {
+    padding: 0px 25px;
+    line-height: 1.1em;
+    text-align: left;
+    background-color: #28285A;
+    opacity: 0.8;
+    color: white;
+    margin: 25px 25px;
+}
+
+.questionDiv {
+    padding-top: 15px;
+
 }
 
 .button {
@@ -33,44 +57,26 @@ label {
     font-family: 'Muli', sans-serif;
     font-size: 20px;
     font-weight: 600;
+}
+
+.button-div {
     text-align: center;
-    margin-left: 50px;
 }
 
 #timer {
-    font-family: 'Muli', sans-serif;
+    padding: 25px 0px 0px;
     font-weight: 600;
-    margin-left: 50px;
+    font-size: 28px;
     color: lightyellow;
-    font-size: 32px;
-    text-align: left;
-    top: 80px;
+    text-align: center;
 }
 
-.quizContainer {
-    padding: 0px 10px;
+.resultsContainer {
+    padding: 50px 50px;
     line-height: 1.1em;
-    margin: 25px 50px;
     text-align: left;
-    font-family: 'Muli', sans-serif;
+    font-weight: 600;
     background-color: #28285A;
     opacity: 0.8;
     color: white;
-    display: block;
-}
-
-.questionDiv {
-    padding-top: 15px;
-
-}
-
-#submit {
-    margin: 40px 0px;
-}
-
-#form, #results {
-    margin: auto;
-    margin: 0px 20px 40px;
-    text-align: left;
-    top: 50px;
-}
+    margin: 100px 100px;
